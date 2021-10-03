@@ -6,7 +6,7 @@ import grails.gorm.transactions.Transactional
 import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest.StandardMultipartFile;
 
 @Transactional
-class Illustration_file_Service {
+class IllustrationFileService {
 
     @NotTransactional
     def uploadFile (path, file) {

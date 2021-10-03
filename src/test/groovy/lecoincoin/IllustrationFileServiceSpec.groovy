@@ -3,7 +3,7 @@ package lecoincoin
 import grails.testing.services.ServiceUnitTest
 import spock.lang.Specification
 
-class Illustration_file_ServiceSpec extends Specification implements ServiceUnitTest<Illustration_file_Service>{
+class IllustrationFileServiceSpec extends Specification implements ServiceUnitTest<IllustrationFileService>{
 
     def setup() {
     }

@@ -4,9 +4,6 @@ import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-
 import static org.springframework.http.HttpStatus.*
 
 class AnnonceController {
@@ -14,7 +11,7 @@ class AnnonceController {
     AnnonceCreationService annonceCreationService;
     SpringSecurityService springSecurityService;
     UserRightsService userRightsService;
-    Illustration_file_Service illustration_file_Service = new Illustration_file_Service();
+    IllustrationFileService illustrationFileService
 
     static allowedMethods = [save: "POST", delete: "DELETE"]
 
@@ -59,7 +56,7 @@ class AnnonceController {
 
     @Secured(value=["ROLE_USER", "ROLE_MODERATEUR", "ROLE_ADMIN"], httpMethod="POST")
     def save() {
-        def imgs = illustration_file_Service.uploadFile(grailsApplication.config.getProperty('datalecoincoin.path'),
+        def imgs = illustrationFileService.uploadFile(grailsApplication.config.getProperty('datalecoincoin.path'),
                 request.getFiles ("image"));
         def annonce = annonceCreationService.createAndSaveArticle (params, imgs, springSecurityService.currentUser);
 
@@ -106,7 +103,7 @@ class AnnonceController {
 
         def imgs;
         try {
-            imgs = illustration_file_Service.uploadFile(grailsApplication.config.getProperty('datalecoincoin.path'),
+            imgs = illustrationFileService.uploadFile(grailsApplication.config.getProperty('datalecoincoin.path'),
                     request.getFiles("image"));
         } catch (Exception e) {
             println("Impossible d'enregistrer les nouvelles images");
@@ -129,7 +126,7 @@ class AnnonceController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'annoce.label', default: 'Annonce'), annonceToUpdate.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'annonce.label', default: 'Annonce'), annonceToUpdate.id])
                 redirect annonceToUpdate
             }
             '*'{ respond annonceToUpdate, [status: OK] }
@@ -145,7 +142,7 @@ class AnnonceController {
         def annonce = Annonce.findById(id);
         // on supprime toutes les images liées à l'annonce
         println(annonce.images);
-        illustration_file_Service.dropIllustrations (grailsApplication.config.getProperty('datalecoincoin.path'),
+        illustrationFileService.dropIllustrations (grailsApplication.config.getProperty('datalecoincoin.path'),
                                                         annonce.images);
         // on supprime l'annonce
         annonceService.delete(id)
