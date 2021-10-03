@@ -1,3 +1,12 @@
+div.nav-login {
+    margin: 1em;
+}
+
+div.nav-main-login {
+    display: flex;
+    display-model: 100%;
+}
+
 /* FONT STACK */
 body,
 input, select, textarea {

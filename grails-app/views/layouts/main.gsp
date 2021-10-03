@@ -17,24 +17,32 @@
     <body>
         <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
+                    <div class="nav-main-login">
                         <sec:ifLoggedIn>
-                            <form method="POST" action="/logout">
-                                <div class="sb-sidenav-footer">
-                                    <div class="small">Logged in as:
-                                        <sec:username></sec:username>
+                                <div class="nav-login">
+                                <form method="POST" action="/logout">
+                                    <div class="sb-sidenav-footer">
+                                        <div class="small">Logged in as:
+                                            <sec:username></sec:username>
+                                        </div>
                                     </div>
+                                    <g:field type="submit" name="deconnection" value="${g.message(code: "message.deconnection")}"/>
+                                </form>
                                 </div>
-                                <g:field type="submit" name="deconnection" value="${g.message(code: "message.deconnection")}"/>
-                            </form>
                         </sec:ifLoggedIn>
-                    <sec:ifNotLoggedIn>
-                        <g:form controller="login" action="auth" method="POST">
-                            <g:field type="submit" name="login" value="${g.message(code: "message.connection")}"/>
-                        </g:form>
-                        <g:link controller="user" action="create">
-                            <button>S'inscrire</button>
-                        </g:link>
-                    </sec:ifNotLoggedIn>
+                        <sec:ifNotLoggedIn>
+                            <div class="nav-login">
+                                <g:form controller="user" action="create" method="GET">
+                                    <g:field class="button" type="submit" name="login" value="S'inscrire"/>
+                                </g:form>
+                            </div>
+                                <div class="nav-login">
+                                    <g:form controller="login" action="auth" method="POST">
+                                        <g:field class="button" type="submit" name="login" value="${g.message(code: "message.connection")}"/>
+                                    </g:form>
+                                </div>
+                        </sec:ifNotLoggedIn>
+                    </div>
                 </div>
                 <a href="/#">
 
