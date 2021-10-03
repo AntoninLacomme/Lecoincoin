@@ -22,7 +22,7 @@
                                     <!-- Contact Section Form-->
                                     <div class="row justify-content-center">
                                         <div class="col-lg-8 col-xl-7">
-                                            <g:form id="contactForm" data-sb-form-api-token="API_TOKEN" controller="annonce" action="update" method="POST" enctype="multipart/form-data">
+                                            <g:form id="contactForm2" data-sb-form-api-token="API_TOKEN" controller="annonce" action="update" method="POST" enctype="multipart/form-data">
                                                 <input hidden name="ID" value="${this.annonce.id}"></input>
                                                 <!-- Title input-->
                                                 <div class="form-floating mb-3">
@@ -58,7 +58,7 @@
                                                                         <table>
                                                                             <tr>
                                                                                 <td>
-                                                                                    <input type="checkbox" id="${image.filename}" name="imageToSupp" value="${image.id}">
+                                                                                    <input class="imageCheckbox" type="checkbox" id="${image.filename}" name="imageToSupp" value="${image.id}">
                                                                                 </td>
                                                                                 <td>
                                                                                     <!-- Portfolio Item 1-->

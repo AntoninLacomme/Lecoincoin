@@ -3,6 +3,7 @@
     <head>
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'annonce.label', default: 'Annonce')}" />
+        <asset:script src="files.js"></asset:script>
     </head>
     <body>
     <div id="layoutSidenav">
