@@ -35,6 +35,3 @@ L'utilisateur ne peut voir, modifier et supprimer que ses propres annonces et so
 
 L'application fournit également une interface api à l'adresse 127.0.0.1:8080/api
 On peut y retrouver les annonces ou les utilisateurs, au format json ou xml.
-
-L'application fournit également une interface api à l'adresse 127.0.0.1:8080/api
-On peut y retrouver les annonces ou les utilisateurs, au format json ou xml.
