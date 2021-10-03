@@ -3,7 +3,6 @@
     <head>
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'annonce.label', default: 'Annonce')}" />
-        <title><g:message code="default.edit.label" args="[entityName]" /></title>
         <asset:link rel="stylesheet" href="img_css.css" />
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />

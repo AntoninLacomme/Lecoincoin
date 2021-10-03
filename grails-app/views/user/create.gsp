@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta name="layout" content="main" />
-    <title><g:message code="default.create.label" args="[entityName]" /></title>
 </head>
 <body>
 <div id="layoutSidenav">

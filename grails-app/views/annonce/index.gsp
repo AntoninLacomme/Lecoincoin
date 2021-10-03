@@ -3,7 +3,6 @@
     <head>
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'annonce.label', default: 'Annonce')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body class="sb-nav-fixed">
     <div id="layoutSidenav">
