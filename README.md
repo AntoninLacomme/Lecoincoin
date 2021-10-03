@@ -7,9 +7,11 @@ Dans le fichier Lecoincoin/grails-app/conf/application.yml, il faut modifier la 
 Il existe 3 comptes "de debug", le compte Administrateur:
  - login: admin
  - password: admin
+ 
  le compte Modérateur :
  - login: modo
  - password: modo
+ 
  le compte Utilisateur :
  - login: slave
  - password: slave
