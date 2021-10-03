@@ -35,8 +35,10 @@ class BootStrapService {
         UserRole.create (mrcoincoin, roles.ROLE_ADMIN, true);
         UserRole.create (mscoincoin, roles.ROLE_MODERATEUR, true);
 
+        def randomNumbers = new Random();
+
         (0..200).each {
-            def user = new User (username: this.generateRandomString(new Random ().nextInt(8) + 4),
+            def user = new User (username: this.generateRandomString(randomNumbers.nextInt(8) + 4, randomNumbers),
                                 password: "password").save();
             UserRole.create (user, roles.ROLE_USER, true);
         }
@@ -59,12 +61,14 @@ class BootStrapService {
                 author: users.get(1)).save ();
     }
 
-    private String generateRandomString (int length) {
+    private String generateRandomString (int length, def random) {
         if (length < 1) {
             return "";
         }
         byte[] array = new byte[length];
-        new Random().nextBytes(array);
+        for (def i = 0; i < length; i++) {
+            array[i] = (byte) (random.nextInt(26) + 97);
+        }
         return new String(array);
     }
 }
