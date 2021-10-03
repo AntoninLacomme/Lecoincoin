@@ -9,7 +9,7 @@ class ApiController {
         if (id == "json") {
             respond (Annonce.list (), formats: ['json']);
         }
-        respond (Annonce.list (), formats: ['xml', 'json']);
+        respond (Annonce.list (), formats: ['json', 'xml']);
     }
 
     def illustration (String id) {
@@ -19,7 +19,7 @@ class ApiController {
         if (id == "json") {
             respond (Illustration.list (), formats: ['json']);
         }
-        respond (Illustration.list (), formats: ['xml', 'json']);
+        respond (Illustration.list (), formats: ['json', 'xml']);
     }
 
     def user (String id) {
@@ -29,6 +29,6 @@ class ApiController {
         if (id == "json") {
             respond (User.list (), formats: ['json']);
         }
-        respond (User.list (), formats: ['xml', 'json']);
+        respond (User.list (), formats: ['json', 'xml']);
     }
 }
